@@ -22,11 +22,8 @@ function update(self, dt)
 			anim = hash("up")
 		elseif self.input.y < 0 then
 			anim = hash("down")
-		elseif self.input.x < 0 then
-			anim = hash("side")
-		elseif self.input.x > 0 then
-			anim = hash("side")
 		end
+		sprite.set_hflip("#sprite", self.input.x < 0)
 
 		if self.anim ~= anim then
 			msg.post("#sprite", "play_animation", { id = anim})
